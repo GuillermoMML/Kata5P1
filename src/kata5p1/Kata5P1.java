@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  *
@@ -29,6 +30,14 @@ public class Kata5P1 {
         SelectApp app = new SelectApp();
         app.selectAll();
         createNewTable();
+        
+        String email = "H:\\NetBeansProyectv2\\Kata5P1\\email.txt";
+        List<String> emails = MailListReader.read(email);
+        InsertarDatosTabla newDatos = new InsertarDatosTabla();
+        
+        for (String addr : emails) {
+            newDatos.insert(addr);
+        }
     }
 
 }
